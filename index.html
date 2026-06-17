@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Юлія Кобиляцька — Data Analyst</title>
+<meta name="description" content="Portfolio of Юлія Кобиляцька — Data Analyst. Python, SQL, Tableau, Amplitude.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #1D9E75;
+    --teal-dark: #0F6E56;
+    --teal-light: #E1F5EE;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --bg: #ffffff;
+    --bg-secondary: #f7f7f5;
+    --border: rgba(0,0,0,0.1);
+    --border-hover: rgba(0,0,0,0.2);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-primary: #f0f0ee;
+      --text-secondary: #aaa;
+      --text-muted: #666;
+      --bg: #141413;
+      --bg-secondary: #1e1e1c;
+      --border: rgba(255,255,255,0.1);
+      --border-hover: rgba(255,255,255,0.2);
+      --teal-light: #04342C;
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0.85rem 0;
+  }
+  nav .inner {
+    max-width: 760px; margin: 0 auto; padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-name { font-size: 14px; font-weight: 500; color: var(--text-primary); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero { padding: 4rem 0 3rem; border-bottom: 0.5px solid var(--border); }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 1rem;
+  }
+  .hero-name { font-size: 42px; font-weight: 500; line-height: 1.15; margin-bottom: 0.4rem; }
+  .hero-role { font-size: 18px; color: var(--text-secondary); margin-bottom: 1.75rem; }
+
+  .about-block {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.75rem;
+    font-size: 14px; color: var(--text-secondary); line-height: 1.75;
+    max-width: 580px;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.75rem; }
+  .tag {
+    font-size: 12px; padding: 4px 12px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+  }
+
+  .cta-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; padding: 9px 18px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border);
+    color: var(--text-primary);
+    text-decoration: none;
+    background: var(--bg);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: var(--bg-secondary); border-color: var(--border-hover); }
+  .btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .btn.primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+
+  /* SECTION */
+  section { padding: 3rem 0; border-bottom: 0.5px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border);
+  }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .skill-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+  }
+  .skill-cat { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .skill-list { font-size: 13px; color: var(--text-primary); font-weight: 500; line-height: 1.7; }
+
+  /* PROJECTS */
+  .project-card {
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.15s;
+  }
+  .project-card:hover { border-color: var(--border-hover); }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 0.5rem; }
+  .project-name { font-size: 15px; font-weight: 500; }
+  .project-link {
+    font-size: 12px; color: var(--teal); text-decoration: none;
+    display: flex; align-items: center; gap: 3px; white-space: nowrap; flex-shrink: 0;
+  }
+  .project-link:hover { color: var(--teal-dark); }
+  .project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.85rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tag {
+    font-size: 11px; padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+  }
+
+  /* TABLEAU */
+  .tableau-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 1rem 1.25rem;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: border-color 0.15s;
+    margin-bottom: 0.75rem;
+  }
+  .tableau-link:hover { border-color: var(--teal); }
+  .tableau-icon { font-size: 24px; }
+  .tableau-text { font-size: 14px; font-weight: 500; }
+  .tableau-sub { font-size: 12px; color: var(--text-muted); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .contact-item:hover { background: var(--teal-light); color: var(--teal-dark); }
+  .contact-icon { font-size: 18px; color: var(--teal); flex-shrink: 0; }
+
+  /* FOOTER */
+  footer { padding: 2rem 0; text-align: center; font-size: 12px; color: var(--text-muted); }
+
+  /* ICON SVG helper */
+  .ico { width: 16px; height: 16px; display: inline-block; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  @media (max-width: 540px) {
+    .hero-name { font-size: 30px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="nav-name">Юлія Кобиляцька</a>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#tableau">Tableau</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero" id="about">
+    <div class="hero-eyebrow">Portfolio · Data Analyst</div>
+    <h1 class="hero-name">Юлія Кобиляцька</h1>
+    <p class="hero-role">Python · SQL · Tableau · Power BI · Amplitude</p>
+
+    <div class="about-block">
+      Аналітик даних з практичним досвідом у продуктовій аналітиці, кредитному скорингу та дослідженні поведінки користувачів. Перетворюю сирі дані (raw data) на зрозумілі інсайти (insights — висновки) та інтерактивні дашборди (dashboards — інформаційні панелі). Відкрита до нових можливостей — шукаю позицію Data Analyst та готова до проєктної роботи з клієнтами.
+    </div>
+
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Tableau</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">EDA</span>
+      <span class="tag">Amplitude</span>
+      <span class="tag">Matplotlib</span>
+      <span class="tag">Seaborn</span>
+      <span class="tag">Jupyter Notebook</span>
+      <span class="tag">Cohort Analysis</span>
+      <span class="tag">Funnel Analysis</span>
+      <span class="tag">Power BI</span>
+    </div>
+
+    <div class="cta-links">
+      <a class="btn primary" href="https://github.com/Yuliia2316" target="_blank">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://t.me/YKobyliatska" target="_blank">
+        <svg class="ico" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Telegram
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/yuliia-kobyliatska" target="_blank">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="mailto:yuliia.data@gmail.com">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        yuliia.data@gmail.com
+      </a>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Навички · Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">Мови · Languages</div>
+        <div class="skill-list">Python<br>SQL</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Бібліотеки · Libraries</div>
+        <div class="skill-list">Pandas<br>Matplotlib<br>Seaborn</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Візуалізація · Viz</div>
+        <div class="skill-list">Tableau<br>Amplitude</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Аналіз · Analysis</div>
+        <div class="skill-list">EDA<br>Cohort Analysis<br>Funnel Analysis<br>Feature Engineering</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Інструменти · Tools</div>
+        <div class="skill-list">Jupyter Notebook<br>GitHub</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Формати даних · Data</div>
+        <div class="skill-list">JSON<br>CSV<br>Excel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Проєкти · Projects</div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">💳 Credit Scoring Analysis</div>
+        <a class="project-link" href="https://github.com/Yuliia2316/Credit-Scoring-Analysis" target="_blank">
+          GitHub ↗
+        </a>
+      </div>
+      <div class="project-desc">Система кредитного скорингу (credit scoring) для автоматизації прийняття рішень за заявками. Обробка даних, розрахунок ризиків та аналіз надійності клієнтів за факторами: вік, локація, сімейний стан. Feature engineering — побудова скорингової моделі.</div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Pandas</span>
+        <span class="project-tag">Seaborn</span>
+        <span class="project-tag">Matplotlib</span>
+        <span class="project-tag">Feature Engineering</span>
+        <span class="project-tag">Jupyter Notebook</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">📊 Stack Overflow Survey Analysis</div>
+        <a class="project-link" href="https://github.com/Yuliia2316/Stack-overflow-survey-analysis" target="_blank">
+          GitHub ↗
+        </a>
+      </div>
+      <div class="project-desc">Комплексний аналіз щорічного опитування Stack Overflow Developer Survey. Дослідження компенсацій розробників, географічних трендів та найпопулярніших мов програмування. Виявлення кореляцій між досвідом і зарплатою.</div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Pandas</span>
+        <span class="project-tag">EDA</span>
+        <span class="project-tag">Data Cleaning</span>
+        <span class="project-tag">Visualization</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">📈 Tableau Product Analytics Dashboards</div>
+        <a class="project-link" href="https://github.com/Yuliia2316/Tableau-Product-Analytics" target="_blank">
+          GitHub ↗
+        </a>
+      </div>
+      <div class="project-desc">Інтерактивні Tableau дашборди: когортний аналіз (cohort analysis) реєстрацій і конверсії, аналіз доходів (revenue performance), відстеження конверсії користувачів. Технічний стек: LOD expressions, Cohort Heatmaps, Funnel Visualization.</div>
+      <div class="project-tags">
+        <span class="project-tag">Tableau</span>
+        <span class="project-tag">Cohort Analysis</span>
+        <span class="project-tag">LOD Expressions</span>
+        <span class="project-tag">Funnel</span>
+        <span class="project-tag">Retention</span>
+        <span class="project-tag">Revenue Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">📱 Product Analytics with Amplitude</div>
+        <a class="project-link" href="https://github.com/Yuliia2316/Product-Analytics-with-Amplitude" target="_blank">
+          GitHub ↗
+        </a>
+      </div>
+      <div class="project-desc">Аналіз шляху користувача (user journey) та ключових продуктових метрик мобільного застосунку. Виявлення точок відтоку у воронці конверсії (conversion funnel) та дослідження патернів утримання (retention patterns) користувачів.</div>
+      <div class="project-tags">
+        <span class="project-tag">Amplitude</span>
+        <span class="project-tag">Funnel Analysis</span>
+        <span class="project-tag">Retention</span>
+        <span class="project-tag">User Journey</span>
+        <span class="project-tag">Product Metrics</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">🗂 JSON Data Analysis &amp; EDA</div>
+        <a class="project-link" href="https://github.com/Yuliia2316/json-data-analysis" target="_blank">
+          GitHub ↗
+        </a>
+      </div>
+      <div class="project-desc">Очищення сирих JSON-даних (raw data), трансформація у структурований формат та витягнення практичних висновків (actionable insights) за допомогою Python та Pandas. Повний цикл EDA (exploratory data analysis — розвідковий аналіз даних).</div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Pandas</span>
+        <span class="project-tag">JSON</span>
+        <span class="project-tag">EDA</span>
+        <span class="project-tag">Data Cleaning</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TABLEAU -->
+  <section id="tableau">
+    <div class="section-label">Tableau Public · Інтерактивні дашборди</div>
+    <a class="tableau-link" href="https://public.tableau.com/app/profile/yuliia.kobyliatska/vizzes" target="_blank">
+      <div class="tableau-icon">📊</div>
+      <div>
+        <div class="tableau-text">Юлія Кобиляцька — Tableau Public</div>
+        <div class="tableau-sub">public.tableau.com · Переглянути всі дашборди ↗</div>
+      </div>
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Зв'язатись · Contact</div>
+    <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 1.25rem;">
+      Відкрита до нових можливостей — пошук позиції Data Analyst та проєктна робота з клієнтами.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-icon">✉️</span>
+        yuliia.data@gmail.com
+      </div>
+      <a class="contact-item" href="https://t.me/YKobyliatska" target="_blank">
+        <span class="contact-icon">✈️</span>
+        t.me/YKobyliatska
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/yuliia-kobyliatska" target="_blank">
+        <span class="contact-icon">💼</span>
+        linkedin.com/in/yuliia-kobyliatska
+      </a>
+      <a class="contact-item" href="https://github.com/Yuliia2316" target="_blank">
+        <span class="contact-icon">🐙</span>
+        github.com/Yuliia2316
+      </a>
+      <a class="contact-item" href="https://public.tableau.com/app/profile/yuliia.kobyliatska/vizzes" target="_blank">
+        <span class="contact-icon">📈</span>
+        Tableau Public
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    © 2025 Юлія Кобиляцька · Data Analyst
+  </div>
+</footer>
+
+</body>
+</html>
